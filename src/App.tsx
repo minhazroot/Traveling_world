@@ -11,7 +11,7 @@ const CountryPromise = async ():Promise<type[]> => {
 function App() {
   return (
     <>
-      <h1>Hello World</h1>
+      <h1>All Countries</h1>
        <Suspense fallback={<h2>Loading...</h2>}>
       <Countries CountryPromise={CountryPromise()} />
     </Suspense>
