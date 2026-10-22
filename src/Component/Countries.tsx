@@ -15,9 +15,19 @@ const Countries = ({ CountryPromise }: CountriesProps) => {
 
   // step 2:- Make a  Even  Handeler :function return type   is   :void
   const HandelVigitedCountry = (Country: type): void => {
-    // step 3:-  use Spliet operator To coppy Privies Array and + New    array
+    // Chak Base on condition   The country is Exist or not (this is good Wea to chaking)
+    const Exists =VisitedCountry.find(c=>c.ccn3.ccn3 ===Country.ccn3.ccn3);
+    if(Exists){
+      const RemainingCountry =VisitedCountry.filter(c=>c.ccn3.ccn3 !==Country.ccn3.ccn3);
+      SetVisitedCountry(RemainingCountry);
+
+
+    }else{
+ // step 3:-  use Spliet operator To coppy Privies Array and + New    array
     const NewVisitedCountr = [...VisitedCountry, Country];
-    SetVisitedCountry(NewVisitedCountr);
+    SetVisitedCountry(NewVisitedCountr); 
+    }
+   
   };
 
   //  make Flag  Even handeler  No  reatin    (:void)
@@ -41,9 +51,14 @@ const Countries = ({ CountryPromise }: CountriesProps) => {
     <div>
       <h3>Visited Country:{VisitedCountry.length} </h3>
       <h3>Visited flags: {VigitedFlag.length}</h3>
+      <ul>
+        {
+          VisitedCountry.map(Countri =><li key={Countri.ccn3.ccn3}>{Countri.name.common}</li>)
+        }
+      </ul>
         <div className="FlagContiner">
         {
-          VigitedFlag.map(flag  => <img className="FlagSize" src={flag} alt=""/>)
+          VigitedFlag.map((flag,index ) => <img key={index}  className="FlagSize" src={flag} alt=""/>)
         }
       </div>
       <div className="CountryLayout">
